@@ -1,0 +1,301 @@
+package com.example.alarmtwo;
+
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.provider.Settings;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import java.util.Calendar;
+
+public class MainActivity extends AppCompatActivity {
+
+    private static final int ALARM_REQUEST_CODE = 123;
+    private static final String ALARM_ACTION = "ALARM_ACTION";
+    private static final int NOTIFICATION_PERMISSION_CODE = 100;
+
+    private AlarmManager alarmManager;
+    private PendingIntent pendingIntent;
+    private Button btnSelectTime, btnSetAlarm, btnCancelAlarm;
+    private TextView tvSelectedTime, tvStatus;
+
+    private int selectedHour = -1;
+    private int selectedMinute = -1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        initializeViews();
+        setupAlarmManager();
+        setupClickListeners();
+
+        checkAlarmLaunch();
+        checkAlarmPermission();
+        checkNotificationPermission();
+    }
+
+    private void initializeViews() {
+        btnSelectTime = findViewById(R.id.btnSelectTime);
+        btnSetAlarm = findViewById(R.id.btnSetAlarm);
+        btnCancelAlarm = findViewById(R.id.btnCancelAlarm);
+        tvSelectedTime = findViewById(R.id.tvSelectedTime);
+        tvStatus = findViewById(R.id.tvStatus);
+    }
+
+    private void setupAlarmManager() {
+        alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        Intent alarmIntent = new Intent(this, AlarmReceiver.class);
+        alarmIntent.setAction(ALARM_ACTION);
+
+        int flags = PendingIntent.FLAG_UPDATE_CURRENT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flags |= PendingIntent.FLAG_IMMUTABLE;
+        }
+
+        pendingIntent = PendingIntent.getBroadcast(
+                this,
+                ALARM_REQUEST_CODE,
+                alarmIntent,
+                flags
+        );
+    }
+
+    private void setupClickListeners() {
+        btnSelectTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTimePicker();
+            }
+        });
+
+        btnSetAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (selectedHour == -1 || selectedMinute == -1) {
+                    Toast.makeText(MainActivity.this, "Please select a time first", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (!hasNotificationPermission()) {
+                    requestNotificationPermission();
+                    return;
+                }
+
+                if (hasAlarmPermission()) {
+                    setAlarm();
+                } else {
+                    requestAlarmPermission();
+                }
+            }
+        });
+
+        btnCancelAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cancelAlarm();
+            }
+        });
+    }
+
+    private boolean hasNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            return ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED;
+        }
+        return true; // Permission not required for Android 12 and below
+    }
+
+    private void checkNotificationPermission() {
+        if (!hasNotificationPermission()) {
+            tvStatus.setText("Notification permission needed for alarms");
+        }
+    }
+
+    private void requestNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String[]{android.Manifest.permission.POST_NOTIFICATIONS},
+                    NOTIFICATION_PERMISSION_CODE
+            );
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == NOTIFICATION_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Notification permission granted!", Toast.LENGTH_SHORT).show();
+                if (selectedHour != -1 && selectedMinute != -1) {
+                    setAlarm();
+                }
+            } else {
+                Toast.makeText(this, "Notification permission denied - alarms won't show notifications", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    private void showTimePicker() {
+        final Calendar calendar = Calendar.getInstance();
+        int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+        int currentMinute = calendar.get(Calendar.MINUTE);
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(
+                this,
+                new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        selectedHour = hourOfDay;
+                        selectedMinute = minute;
+
+                        String timeString = String.format("%02d:%02d", hourOfDay, minute);
+                        tvSelectedTime.setText("Selected: " + timeString);
+                        updateTimeUntilAlarm(hourOfDay, minute);
+                    }
+                },
+                currentHour,
+                currentMinute,
+                true
+        );
+
+        timePickerDialog.setTitle("Select Alarm Time");
+        timePickerDialog.show();
+    }
+
+    private void updateTimeUntilAlarm(int hour, int minute) {
+        Calendar alarmCalendar = Calendar.getInstance();
+        alarmCalendar.set(Calendar.HOUR_OF_DAY, hour);
+        alarmCalendar.set(Calendar.MINUTE, minute);
+        alarmCalendar.set(Calendar.SECOND, 0);
+
+        Calendar now = Calendar.getInstance();
+
+        if (alarmCalendar.before(now)) {
+            alarmCalendar.add(Calendar.DAY_OF_YEAR, 1);
+        }
+
+        long timeUntilAlarm = alarmCalendar.getTimeInMillis() - now.getTimeInMillis();
+        long hoursUntil = timeUntilAlarm / (1000 * 60 * 60);
+        long minutesUntil = (timeUntilAlarm % (1000 * 60 * 60)) / (1000 * 60);
+
+        String timeUntilText;
+        if (hoursUntil > 0) {
+            timeUntilText = String.format("Alarm will trigger in %d hours %d minutes", hoursUntil, minutesUntil);
+        } else {
+            timeUntilText = String.format("Alarm will trigger in %d minutes", minutesUntil);
+        }
+
+        tvStatus.setText(timeUntilText);
+    }
+
+    private boolean hasAlarmPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            return alarmManager.canScheduleExactAlarms();
+        }
+        return true;
+    }
+
+    private void checkAlarmPermission() {
+        if (!hasAlarmPermission()) {
+            tvStatus.setText("Alarm permission needed\nSelect time and set alarm to request");
+        }
+    }
+
+    private void requestAlarmPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            Intent intent = new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
+            startActivity(intent);
+            Toast.makeText(this, "Please grant 'Alarms & Reminders' permission", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void setAlarm() {
+        try {
+            if (!hasAlarmPermission()) {
+                Toast.makeText(this, "Alarm permission not granted", Toast.LENGTH_LONG).show();
+                requestAlarmPermission();
+                return;
+            }
+
+            Calendar alarmCalendar = Calendar.getInstance();
+            alarmCalendar.set(Calendar.HOUR_OF_DAY, selectedHour);
+            alarmCalendar.set(Calendar.MINUTE, selectedMinute);
+            alarmCalendar.set(Calendar.SECOND, 0);
+            alarmCalendar.set(Calendar.MILLISECOND, 0);
+
+            Calendar now = Calendar.getInstance();
+
+            if (alarmCalendar.before(now)) {
+                alarmCalendar.add(Calendar.DAY_OF_YEAR, 1);
+            }
+
+            long triggerTime = alarmCalendar.getTimeInMillis();
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerTime, pendingIntent);
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerTime, pendingIntent);
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                alarmManager.setExact(AlarmManager.RTC_WAKEUP, triggerTime, pendingIntent);
+            } else {
+                alarmManager.set(AlarmManager.RTC_WAKEUP, triggerTime, pendingIntent);
+            }
+
+            String alarmTime = String.format("%02d:%02d", selectedHour, selectedMinute);
+            String date = alarmCalendar.get(Calendar.DAY_OF_MONTH) + "/" +
+                    (alarmCalendar.get(Calendar.MONTH) + 1) + "/" +
+                    alarmCalendar.get(Calendar.YEAR);
+
+            tvStatus.setText("Alarm set for " + alarmTime + "\n" + date + "\nYou can close the app");
+            Toast.makeText(this, "Alarm set for " + alarmTime + "!", Toast.LENGTH_LONG).show();
+
+        } catch (SecurityException e) {
+            Toast.makeText(this, "Alarm permission denied", Toast.LENGTH_LONG).show();
+            tvStatus.setText("Error: Need alarm permission");
+            requestAlarmPermission();
+        } catch (Exception e) {
+            Toast.makeText(this, "Error setting alarm: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void cancelAlarm() {
+        try {
+            if (alarmManager != null) {
+                alarmManager.cancel(pendingIntent);
+            }
+            tvStatus.setText("Alarm cancelled");
+            Toast.makeText(this, "Alarm cancelled", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "Error cancelling alarm", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void checkAlarmLaunch() {
+        if (getIntent() != null && getIntent().getBooleanExtra("FROM_ALARM", false)) {
+            Toast.makeText(this, "Alarm triggered!", Toast.LENGTH_LONG).show();
+            tvStatus.setText("Alarm is ringing!\nApp was opened by alarm.");
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkAlarmPermission();
+        checkNotificationPermission();
+    }
+}

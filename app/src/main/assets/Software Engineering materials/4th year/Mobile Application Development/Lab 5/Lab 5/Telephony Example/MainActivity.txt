@@ -1,0 +1,235 @@
+package com.example.telephonyexample;
+
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.telephony.TelephonyManager;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+public class MainActivity extends AppCompatActivity {
+
+    private TextView telephonyInfoText;
+    private Button getInfoBtn;
+    private TelephonyManager telephonyManager;
+
+    private static final int PERMISSION_REQUEST_CODE = 123;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        telephonyInfoText = findViewById(R.id.telephonyInfoText);
+        getInfoBtn = findViewById(R.id.getInfoBtn);
+
+        telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+
+        getInfoBtn.setOnClickListener(v -> {
+            if (checkPermissions()) {
+                getTelephonyInfo();
+            }
+        });
+    }
+
+    private boolean checkPermissions() {
+        String[] requiredPermissions = {
+                Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+        };
+
+        for (String permission : requiredPermissions) {
+            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, requiredPermissions, PERMISSION_REQUEST_CODE);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                getTelephonyInfo();
+            } else {
+                Toast.makeText(this, "Permissions denied!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void getTelephonyInfo() {
+        StringBuilder info = new StringBuilder();
+        info.append("📱 Telephony Information\n\n");
+
+        try {
+            // Basic device information (no permissions required)
+            info.append("🌍 Network Operator: ").append(telephonyManager.getNetworkOperatorName()).append("\n");
+            info.append("📡 SIM Operator: ").append(telephonyManager.getSimOperatorName()).append("\n");
+            info.append("📶 Network Type: ").append(getNetworkType()).append("\n");
+            info.append("📞 Phone Type: ").append(getPhoneType()).append("\n");
+            info.append("✅ SIM State: ").append(getSimState()).append("\n");
+            info.append("📞 Call State: ").append(getCallState()).append("\n");
+            info.append("📶 Data Activity: ").append(getDataActivity()).append("\n");
+            info.append("🌐 Data State: ").append(getDataState()).append("\n");
+            info.append("📱 Device Software Version: ").append(telephonyManager.getDeviceSoftwareVersion()).append("\n");
+
+            // Information that requires permissions
+            info.append("📞 Phone Number: ").append(getPhoneNumber()).append("\n");
+            info.append("🆔 Device ID: ").append(getSafeDeviceId()).append("\n");
+            info.append("📶 Signal Strength: ").append(getSignalStrengthInfo()).append("\n");
+
+        } catch (SecurityException e) {
+            info.append("❌ Permission denied for some information\n");
+        } catch (Exception e) {
+            info.append("❌ Error: ").append(e.getMessage()).append("\n");
+        }
+
+        telephonyInfoText.setText(info.toString());
+    }
+
+    // Safe method to get device identifier
+    private String getSafeDeviceId() {
+        try {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
+                    != PackageManager.PERMISSION_GRANTED) {
+                return "Permission required";
+            }
+
+            // For Android 10+ (API 29+), device identifiers are restricted
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                return "Restricted in Android 10+";
+            }
+            // For Android 8+ (API 26+), use getImei()
+            else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                String imei = telephonyManager.getImei();
+                return imei != null ? imei : "Not available";
+            }
+            // For older devices, use getDeviceId()
+            else {
+                String deviceId = telephonyManager.getDeviceId();
+                return deviceId != null ? deviceId : "Not available";
+            }
+        } catch (SecurityException e) {
+            return "Permission denied";
+        } catch (Exception e) {
+            return "Error: " + e.getMessage();
+        }
+    }
+
+    private String getPhoneNumber() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
+                != PackageManager.PERMISSION_GRANTED) {
+            return "Permission required";
+        }
+        try {
+            String number = telephonyManager.getLine1Number();
+            return number != null ? number : "Not available";
+        } catch (SecurityException e) {
+            return "Permission denied";
+        }
+    }
+
+    private String getSignalStrengthInfo() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            return "Location permission required";
+        }
+        return "Check signal strength using PhoneStateListener";
+    }
+
+    // Rest of the helper methods remain the same
+    private String getNetworkType() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
+                != PackageManager.PERMISSION_GRANTED) {
+            return "Permission required";
+        }
+
+        int networkType = telephonyManager.getNetworkType();
+        return convertNetworkTypeToString(networkType);
+    }
+
+    private String convertNetworkTypeToString(int networkType) {
+        switch (networkType) {
+            case TelephonyManager.NETWORK_TYPE_GPRS: return "2G (GPRS)";
+            case TelephonyManager.NETWORK_TYPE_EDGE: return "2G (EDGE)";
+            case TelephonyManager.NETWORK_TYPE_CDMA: return "2G (CDMA)";
+            case TelephonyManager.NETWORK_TYPE_1xRTT: return "2G (1xRTT)";
+            case TelephonyManager.NETWORK_TYPE_IDEN: return "2G (iDEN)";
+            case TelephonyManager.NETWORK_TYPE_UMTS: return "3G (UMTS)";
+            case TelephonyManager.NETWORK_TYPE_EVDO_0: return "3G (EVDO_0)";
+            case TelephonyManager.NETWORK_TYPE_EVDO_A: return "3G (EVDO_A)";
+            case TelephonyManager.NETWORK_TYPE_HSDPA: return "3G (HSDPA)";
+            case TelephonyManager.NETWORK_TYPE_HSUPA: return "3G (HSUPA)";
+            case TelephonyManager.NETWORK_TYPE_HSPA: return "3G (HSPA)";
+            case TelephonyManager.NETWORK_TYPE_EVDO_B: return "3G (EVDO_B)";
+            case TelephonyManager.NETWORK_TYPE_EHRPD: return "3G (EHRPD)";
+            case TelephonyManager.NETWORK_TYPE_HSPAP: return "3G (HSPA+)";
+            case TelephonyManager.NETWORK_TYPE_LTE: return "4G (LTE)";
+            case TelephonyManager.NETWORK_TYPE_NR: return "5G (NR)";
+            default: return "Unknown (" + networkType + ")";
+        }
+    }
+
+    private String getPhoneType() {
+        int phoneType = telephonyManager.getPhoneType();
+        switch (phoneType) {
+            case TelephonyManager.PHONE_TYPE_GSM: return "GSM";
+            case TelephonyManager.PHONE_TYPE_CDMA: return "CDMA";
+            case TelephonyManager.PHONE_TYPE_SIP: return "SIP";
+            case TelephonyManager.PHONE_TYPE_NONE: return "No phone";
+            default: return "Unknown";
+        }
+    }
+
+    private String getSimState() {
+        int simState = telephonyManager.getSimState();
+        switch (simState) {
+            case TelephonyManager.SIM_STATE_ABSENT: return "No SIM card";
+            case TelephonyManager.SIM_STATE_READY: return "SIM ready";
+            case TelephonyManager.SIM_STATE_PIN_REQUIRED: return "PIN required";
+            case TelephonyManager.SIM_STATE_PUK_REQUIRED: return "PUK required";
+            case TelephonyManager.SIM_STATE_NETWORK_LOCKED: return "Network locked";
+            default: return "Unknown state (" + simState + ")";
+        }
+    }
+
+    private String getCallState() {
+        int callState = telephonyManager.getCallState();
+        switch (callState) {
+            case TelephonyManager.CALL_STATE_IDLE: return "No active call";
+            case TelephonyManager.CALL_STATE_RINGING: return "Ringing";
+            case TelephonyManager.CALL_STATE_OFFHOOK: return "On call";
+            default: return "Unknown";
+        }
+    }
+
+    private String getDataActivity() {
+        int dataActivity = telephonyManager.getDataActivity();
+        switch (dataActivity) {
+            case TelephonyManager.DATA_ACTIVITY_NONE: return "No data transfer";
+            case TelephonyManager.DATA_ACTIVITY_IN: return "Receiving data";
+            case TelephonyManager.DATA_ACTIVITY_OUT: return "Sending data";
+            case TelephonyManager.DATA_ACTIVITY_INOUT: return "Sending & receiving";
+            default: return "Unknown";
+        }
+    }
+
+    private String getDataState() {
+        int dataState = telephonyManager.getDataState();
+        switch (dataState) {
+            case TelephonyManager.DATA_DISCONNECTED: return "Disconnected";
+            case TelephonyManager.DATA_CONNECTING: return "Connecting";
+            case TelephonyManager.DATA_CONNECTED: return "Connected";
+            case TelephonyManager.DATA_SUSPENDED: return "Suspended";
+            default: return "Unknown";
+        }
+    }
+}

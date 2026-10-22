@@ -1,0 +1,107 @@
+package com.example.sqliteexample;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.*;
+import androidx.appcompat.app.AlertDialog;
+
+public class MainActivity extends AppCompatActivity {
+
+    DBHelper myDb;
+    EditText editId, editName, editAge;
+    Button btnAdd, btnViewAll, btnUpdate, btnDelete;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        myDb = new DBHelper(this);
+
+        editId = findViewById(R.id.editTextId);
+        editName = findViewById(R.id.editTextName);
+        editAge = findViewById(R.id.editTextAge);
+
+        btnAdd = findViewById(R.id.buttonAdd);
+        btnViewAll = findViewById(R.id.buttonView);
+        btnUpdate = findViewById(R.id.buttonUpdate);
+        btnDelete = findViewById(R.id.buttonDelete);
+
+        addData();
+        viewAll();
+        updateData();
+        deleteData();
+    }
+
+    public void addData() {
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isInserted = myDb.insertData(editName.getText().toString(),
+                        editAge.getText().toString());
+                if (isInserted)
+                    Toast.makeText(MainActivity.this, "Data Inserted", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(MainActivity.this, "Insertion Failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void viewAll() {
+        btnViewAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Cursor res = myDb.getAllData();
+                if (res.getCount() == 0) {
+                    showMessage("Error", "No Data Found");
+                    return;
+                }
+
+                StringBuilder buffer = new StringBuilder();
+                while (res.moveToNext()) {
+                    buffer.append("ID: ").append(res.getString(0)).append("\n");
+                    buffer.append("Name: ").append(res.getString(1)).append("\n");
+                    buffer.append("Age: ").append(res.getString(2)).append("\n\n");
+                }
+
+                showMessage("Data", buffer.toString());
+            }
+        });
+    }
+
+    public void updateData() {
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isUpdate = myDb.updateData(editId.getText().toString(),
+                        editName.getText().toString(), editAge.getText().toString());
+                if (isUpdate)
+                    Toast.makeText(MainActivity.this, "Data Updated", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(MainActivity.this, "Update Failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void deleteData() {
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Integer deletedRows = myDb.deleteData(editId.getText().toString());
+                if (deletedRows > 0)
+                    Toast.makeText(MainActivity.this, "Data Deleted", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(MainActivity.this, "Delete Failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void showMessage(String title, String Message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(Message);
+        builder.show();
+    }
+}

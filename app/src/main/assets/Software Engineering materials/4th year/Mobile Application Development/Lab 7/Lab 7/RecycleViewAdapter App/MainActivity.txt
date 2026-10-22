@@ -1,0 +1,36 @@
+package com.example.simplefictionapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
+
+    RecyclerView recyclerView;
+    FictionAdapter adapter;
+    ArrayList<Fiction> fictionList = new ArrayList<>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Add sample fiction items
+        fictionList.add(new Fiction(R.drawable.sample_image, "The Lost Forest",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."));
+        fictionList.add(new Fiction(R.drawable.sample_image2, "Journey to the Stars",
+                "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"));
+        fictionList.add(new Fiction(R.drawable.sample_image3, "Mystery of the Lake",
+                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"));
+
+        adapter = new FictionAdapter(fictionList);
+        recyclerView.setAdapter(adapter);
+    }
+}

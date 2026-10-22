@@ -1,0 +1,58 @@
+package com.example.networktypes;
+
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkCapabilities;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    private TextView tvNetworkStatus;
+    private Button btnCheckNetwork;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        tvNetworkStatus = findViewById(R.id.tvNetworkStatus);
+        btnCheckNetwork = findViewById(R.id.btnCheckNetwork);
+
+        btnCheckNetwork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkNetworkType();
+            }
+        });
+    }
+
+    private void checkNetworkType() {
+        ConnectivityManager connectivityManager =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        String networkType = "No Internet Connection";
+
+        NetworkCapabilities capabilities =
+                connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
+
+        if (capabilities != null) {
+            if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                networkType = "Connected to WiFi";
+            } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                networkType = "Connected to Mobile Data";
+            } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
+                networkType = "Connected to Ethernet";
+            } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN)) {
+                networkType = "Connected via VPN";
+            } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_BLUETOOTH)) {
+                networkType = "Connected via Bluetooth";
+            }
+        }
+
+        tvNetworkStatus.setText(networkType);
+    }
+}

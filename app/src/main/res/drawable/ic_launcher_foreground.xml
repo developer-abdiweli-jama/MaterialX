@@ -1,0 +1,3 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/launcher_icon_clean" android:gravity="center" android:width="90dp" android:height="90dp" />
+</layer-list>

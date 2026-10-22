@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="#FAFAFA"
+    tools:context=".MainActivity">
+
+    <!-- 1. Text Button - Roboto Regular -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/textButton"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Text Button"
+        android:fontFamily="sans-serif" />
+
+    <!-- 2. Outlined Button - Roboto Medium -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/outlinedButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Outlined Button"
+        android:fontFamily="sans-serif-medium" />
+
+    <!-- 3. Contained Button - Roboto Bold -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/containedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Contained Button"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        app:backgroundTint="#6200EE" />
+
+    <!-- 4. Elevated Button - Roboto Black -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/elevatedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Elevated Button"
+        android:fontFamily="sans-serif-black"
+        app:backgroundTint="#03DAC5"
+        app:elevation="8dp" />
+
+    <!-- 5. Toggle Button - Roboto Light -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/toggleButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toggle Button"
+        android:fontFamily="sans-serif-light"
+        android:checkable="true"
+        app:icon="@drawable/ic_baseline_toggle_off_24"
+        app:iconGravity="textStart" />
+
+</LinearLayout>

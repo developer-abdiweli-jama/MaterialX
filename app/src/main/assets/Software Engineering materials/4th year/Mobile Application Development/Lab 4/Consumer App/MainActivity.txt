@@ -1,0 +1,53 @@
+package com.example.consumerapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.*;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button btnView;
+    TextView textData;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btnView = findViewById(R.id.btnView);
+        textData = findViewById(R.id.textData);
+
+        btnView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("content://com.example.providerapp.provider/students");
+              Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+                StringBuilder buffer = new StringBuilder();
+
+                if (cursor != null && cursor.getCount() > 0){
+                    while (cursor.moveToNext()) {
+
+//                        buffer.append("ID: ").append(cursor.getColumnIndexOrThrow("_id")).append(" | ");
+//                        buffer.append("Name: ").append(cursor.getColumnIndexOrThrow("name")).append("\n");
+
+                        buffer.append(cursor.getInt(0)).append("\t\t | \t\t");
+                       buffer.append(cursor.getString(1)).append("\n");
+                    }
+                    cursor.close();
+                }
+                else
+                {
+                    buffer.append("No data found");
+                }
+
+                textData.setText(buffer.toString());
+
+
+            }
+        });
+    }
+}

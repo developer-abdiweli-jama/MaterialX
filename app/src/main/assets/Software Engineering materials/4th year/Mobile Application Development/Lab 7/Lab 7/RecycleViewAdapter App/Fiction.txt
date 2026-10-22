@@ -1,0 +1,14 @@
+package com.example.simplefictionapp;
+
+public class Fiction {
+    public int imageResId;
+    public String title;
+    public String content;
+
+    public Fiction(int imageResId, String title, String content){
+        this.imageResId = imageResId;
+        this.title = title;
+        this.content = content;
+    }
+}
+

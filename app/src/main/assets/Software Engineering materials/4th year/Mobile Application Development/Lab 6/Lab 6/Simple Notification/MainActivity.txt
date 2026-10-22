@@ -1,0 +1,102 @@
+package com.example.simplenotification;
+
+import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.annotation.NonNull;
+
+public class MainActivity extends AppCompatActivity {
+
+    private static final String CHANNEL_ID = "My Notification Channel";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // 1. Create Channel for Android 8+
+        createNotificationChannel();
+
+        //  STEP 1: Ask permission (Android 13+)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)
+                    != PackageManager.PERMISSION_GRANTED) {
+
+                requestPermissions(
+                        new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                        100
+                );
+            }
+        }
+
+        // 2. Button click
+        Button btn = findViewById(R.id.btnNotify);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showSimpleNotification();
+            }
+        });
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == 100) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Permission granted", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Notification permission denied!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+
+    private void showSimpleNotification()
+    {
+       
+        NotificationCompat.Builder builder =
+                        new NotificationCompat.Builder(this, CHANNEL_ID)
+                        .setSmallIcon(R.drawable.ic_notification)   // your icon
+                        .setContentTitle("Hello Student!")
+                        .setContentText("This is a simple notification.")
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                        .setColorized(true) // Enable coloring (Android 8.0+)
+                        .setAutoCancel(true);   // optional
+
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MainActivity.this);
+
+                  // id = 5 (unique)
+             notificationManager.notify(5, builder.build());
+            Log.d("NotificationTest", "Notification sent successfully!");
+       
+    }
+
+    private void createNotificationChannel() {
+        //Build.VERSION_CODES.O) refers to Android Oreo (API Level 26).
+        if (Build.VERSION.SDK_INT >= 26) {
+            CharSequence name = "Simple Channel";
+            String description = "Channel for simple notifications";
+            int importance = NotificationManager.IMPORTANCE_HIGH;   // 4
+
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+                     channel.setDescription(description);
+
+            NotificationManager manager = getSystemService(NotificationManager.class);
+                      manager.createNotificationChannel(channel);
+        }
+    }
+
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Primary - Indigo -->
+    <color name="primary">#3F51B5</color>
+    <color name="primary_light">#757DE8</color>
+    <color name="primary_dark">#002984</color>
+    <color name="primary_variant">#303F9F</color>
+
+    <!-- Secondary - Teal Accent -->
+    <color name="secondary">#00BCD4</color>
+    <color name="secondary_light">#62EFFF</color>
+    <color name="secondary_dark">#008BA3</color>
+
+    <!-- Backgrounds -->
+    <color name="background">#F5F7FA</color>
+    <color name="surface">#FFFFFF</color>
+
+    <!-- Typography -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+
+    <!-- Accents / Utilities -->
+    <color name="accent_blue">#2196F3</color>
+    <color name="accent_teal">#009688</color>
+    <color name="accent_orange">#FF9800</color>
+    <color name="pdf_red">#F44336</color>
+    <color name="ppt_orange">#FF9800</color>
+    <color name="error_red">#D32F2F</color>
+    <color name="success_green">#388E3C</color>
+    <color name="divider">#E0E0E0</color>
+
+    <!-- Material 3 Specific -->
+    <color name="md_theme_light_primary">#3F51B5</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_secondary">#00BCD4</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_surface">#FFFFFF</color>
+    <color name="md_theme_light_onSurface">#212121</color>
+</resources>

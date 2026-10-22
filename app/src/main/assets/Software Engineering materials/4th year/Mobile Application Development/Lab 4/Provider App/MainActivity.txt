@@ -1,0 +1,69 @@
+package com.example.providerapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.*;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText editName;
+    Button btnInsert,btnShowData;
+    TextView showData;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        editName = findViewById(R.id.editName);
+        btnInsert = findViewById(R.id.btnInsert);
+        btnShowData=findViewById(R.id.btnShowData);
+        showData=findViewById(R.id.showData);
+
+        btnInsert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ContentValues values = new ContentValues();
+                values.put("name", editName.getText().toString());
+                Uri uri = getContentResolver().insert(StudentProvider.CONTENT_URI, values);
+                Toast.makeText(MainActivity.this, "Inserted: " + uri, Toast.LENGTH_SHORT).show();
+
+                Cursor c=getContentResolver().query(StudentProvider.CONTENT_URI,null,null,null,null);
+                Log.d("Test","rows :"+c.getCount());
+            }
+        });
+
+        btnShowData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Uri uri = Uri.parse("content://com.example.providerapp.provider/students");
+                Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+                StringBuilder buffer = new StringBuilder();
+
+                if (cursor != null && cursor.getCount() > 0){
+                    while (cursor.moveToNext()) {
+
+                        buffer.append(cursor.getInt(0)).append("\t\t | \t\t");
+                       buffer.append(cursor.getString(1)).append("\n");
+
+                    }
+                    cursor.close();
+                }
+                else
+                {
+                    buffer.append("No data found");
+                }
+
+               showData.setText(buffer.toString());
+
+            }
+        });
+    }
+}

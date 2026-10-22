@@ -1,0 +1,51 @@
+package com.example.storywithinflationapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    LinearLayout container;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        container = findViewById(R.id.container);
+
+        // Sample data
+        int[] images = {R.drawable.sample_image, R.drawable.sample_image2, R.drawable.sample_image3};
+        String[] titles = {"The Lost Forest", "Journey to the Stars", "Mystery of the Lake"};
+        String[] contents = {
+                "Once upon a time in a deep misty forest, there lived a mysterious creature...",
+                "Exploring the endless galaxy, our hero discovers worlds beyond imagination...",
+                "The lake was calm, but the fog hid secrets no one dared uncover..."
+        };
+
+        LayoutInflater inflater = getLayoutInflater();
+
+        for (int i = 0; i < titles.length; i++) {
+            // Inflate row_story.xml
+            View storyView = inflater.inflate(R.layout.row_story, container, false);
+
+            // Set image, title, and content
+            ImageView img = storyView.findViewById(R.id.imgStory);
+            img.setImageResource(images[i]);
+
+            TextView tvTitle = storyView.findViewById(R.id.tvTitle);
+            tvTitle.setText(titles[i]);
+
+            TextView tvContent = storyView.findViewById(R.id.tvContent);
+            tvContent.setText(contents[i]);
+
+            // Add to container
+            container.addView(storyView);
+        }
+    }
+}

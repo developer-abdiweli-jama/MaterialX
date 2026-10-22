@@ -1,0 +1,53 @@
+package com.example.materialdesignexample;
+
+import android.os.Bundle;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.button.MaterialButton;
+
+public class MainActivity extends AppCompatActivity {
+
+    // Variables matching your XML ids exactly
+    private MaterialButton textButton;
+    private MaterialButton outlinedButton;
+    private MaterialButton containedButton;
+    private MaterialButton elevatedButton;
+    private MaterialButton toggleButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Initialize all buttons with exact XML ids
+        textButton = findViewById(R.id.textButton);
+        outlinedButton = findViewById(R.id.outlinedButton);
+        containedButton = findViewById(R.id.containedButton);
+        elevatedButton = findViewById(R.id.elevatedButton);
+        toggleButton = findViewById(R.id.toggleButton);
+
+        // Set click listeners
+        textButton.setOnClickListener(v -> {
+            Toast.makeText(this, "Text Button clicked", Toast.LENGTH_SHORT).show();
+        });
+
+        outlinedButton.setOnClickListener(v -> {
+            Toast.makeText(this, "Outlined Button clicked", Toast.LENGTH_SHORT).show();
+        });
+
+        containedButton.setOnClickListener(v -> {
+            Toast.makeText(this, "Contained Button clicked", Toast.LENGTH_SHORT).show();
+        });
+
+        elevatedButton.setOnClickListener(v -> {
+            Toast.makeText(this, "Elevated Button clicked", Toast.LENGTH_SHORT).show();
+        });
+
+        toggleButton.setOnClickListener(v -> {
+            // Toggle the button state
+            toggleButton.setChecked(!toggleButton.isChecked());
+            String state = toggleButton.isChecked() ? "ON" : "OFF";
+            Toast.makeText(this, "Toggle Button: " + state, Toast.LENGTH_SHORT).show();
+        });
+    }
+}

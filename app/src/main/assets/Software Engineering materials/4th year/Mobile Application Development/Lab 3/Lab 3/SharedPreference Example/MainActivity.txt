@@ -1,0 +1,130 @@
+package com.example.sharedpreferenceexample;
+
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity extends AppCompatActivity {
+    EditText editTextUsername, editTextEmail;
+    Button buttonSave, buttonShow, buttonChangeTheme;
+    TextView textViewResult,headertxt;
+    LinearLayout mainLayout;
+
+    // SharedPreferences constants
+    private static final String PREF_NAME = "UserPref";
+    private static final String KEY_USERNAME = "username";
+    private static final String KEY_EMAIL = "email";
+    private static final String KEY_THEME = "theme"; // to store theme color
+
+    private boolean isDarkTheme = false; // track current theme
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Initialize views
+        editTextUsername = findViewById(R.id.editTextUsername);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        buttonSave = findViewById(R.id.buttonSave);
+        buttonShow = findViewById(R.id.buttonShow);
+        buttonChangeTheme = findViewById(R.id.buttonChangeTheme);
+        textViewResult = findViewById(R.id.textViewResult);
+        headertxt = findViewById(R.id.myHeader);
+        mainLayout = findViewById(R.id.mainLayout);
+
+        // Load theme first before user interacts
+        loadTheme();
+
+        // Save data
+        buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username = editTextUsername.getText().toString();
+                String email = editTextEmail.getText().toString();
+
+                if (username.isEmpty() || email.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                SharedPreferences sharedPreferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString(KEY_USERNAME, username);
+                editor.putString(KEY_EMAIL, email);
+                editor.apply();
+
+                Toast.makeText(MainActivity.this, "Data saved successfully!", Toast.LENGTH_SHORT).show();
+
+                editTextUsername.setText("");
+                editTextEmail.setText("");
+            }
+        });
+
+        // Show data
+        buttonShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+                String savedUsername = sharedPreferences.getString(KEY_USERNAME, "No username found");
+                String savedEmail = sharedPreferences.getString(KEY_EMAIL, "No email found");
+
+                String result = "Username: " + savedUsername + "\nEmail: " + savedEmail;
+                textViewResult.setText(result);
+            }
+        });
+
+        // Change theme
+        buttonChangeTheme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isDarkTheme = !isDarkTheme; // toggle theme
+                applyTheme();
+                saveTheme();
+            }
+        });
+    }
+    // Apply theme based on flag
+    private void applyTheme() {
+        if (isDarkTheme) {
+            mainLayout.setBackgroundColor(Color.parseColor("#222222"));
+            textViewResult.setTextColor(Color.WHITE);
+            editTextUsername.setHintTextColor(Color.WHITE);
+            editTextEmail.setHintTextColor(Color.WHITE);
+            headertxt.setTextColor(Color.WHITE);
+            Toast.makeText(this, "Dark Theme Applied", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            mainLayout.setBackgroundColor(Color.WHITE);
+            textViewResult.setTextColor(Color.BLACK);
+            editTextUsername.setHintTextColor(Color.BLACK);
+            editTextEmail.setHintTextColor(Color.BLACK);
+            headertxt.setTextColor(Color.BLACK);
+            Toast.makeText(this, "Light Theme Applied", Toast.LENGTH_SHORT).show();
+        }
+    }
+    // Save current theme choice
+    private void saveTheme() {
+        SharedPreferences sharedPreferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(KEY_THEME, isDarkTheme);
+        editor.apply();
+    }
+    // Load saved theme
+    private void loadTheme() {
+        SharedPreferences sharedPreferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+        isDarkTheme = sharedPreferences.getBoolean(KEY_THEME, false);
+        applyTheme();
+    }
+}
