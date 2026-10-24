@@ -1,0 +1,264 @@
+Software Engineering materials/4th year/Real Time and Embedded Systems/Final exam For Real Time and Embedded System 2015.pdf
+Software Engineering materials/4th year/Real Time and Embedded Systems/Chapter One.pdf
+Software Engineering materials/4th year/Real Time and Embedded Systems/Chapter Two  finall.pptx
+Software Engineering materials/4th year/Real Time and Embedded Systems/Chapter Three final.pptx
+Software Engineering materials/4th year/Real Time and Embedded Systems/Chapter Five.pptx
+Software Engineering materials/4th year/Real Time and Embedded Systems/Chapter ES 4.pptx
+Software Engineering materials/4th year/Fundamentals of Artificial Intelligence/AI ch 2 updated.pptx
+Software Engineering materials/4th year/Fundamentals of Artificial Intelligence/AI chapter 5.pptx
+Software Engineering materials/4th year/Fundamentals of Artificial Intelligence/ch-1.pptx
+Software Engineering materials/4th year/Fundamentals of Artificial Intelligence/AI chapter 3.pptx
+Software Engineering materials/4th year/Fundamentals of Artificial Intelligence/AI chapter6-NLP.pptx
+Software Engineering materials/4th year/Fundamentals of Artificial Intelligence/AI chap4-updated.pptx
+Software Engineering materials/4th year/Principles of Compiler Design/Chapter 7 Code Optimization and Code Generation.pdf
+Software Engineering materials/4th year/Principles of Compiler Design/Chapter 6 Run Time Environment.pdf
+Software Engineering materials/4th year/Principles of Compiler Design/Chapter  1 Introduction.pdf
+Software Engineering materials/4th year/Principles of Compiler Design/Chapter 5 Intermidate code Generation.pdf
+Software Engineering materials/4th year/Principles of Compiler Design/Chapter 3 Syntax Analysis.pdf
+Software Engineering materials/4th year/Principles of Compiler Design/Chapter 2 Lexical Analysis.pdf
+Software Engineering materials/4th year/Principles of Compiler Design/Chapter 4 Semantic Analysis.pdf
+Software Engineering materials/4th year/Mobile Application Development/Chapter 2.pptx
+Software Engineering materials/4th year/Mobile Application Development/Lab 7.rar
+Software Engineering materials/4th year/Mobile Application Development/Chapter 6.pptx
+Software Engineering materials/4th year/Mobile Application Development/Chapter 4.pptx
+Software Engineering materials/4th year/Mobile Application Development/Lab 4.rar
+Software Engineering materials/4th year/Mobile Application Development/Lab 5/Lab 5/Send SMS/AndroidManifest.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 5/Lab 5/Send SMS/activity_main.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 5/Lab 5/Send SMS/MainActivity.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 5/Lab 5/Network Types/AndroidManifest.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 5/Lab 5/Network Types/activity_main.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 5/Lab 5/Network Types/MainActivity.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 5/Lab 5/Telephony Example/AndroidManifest.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 5/Lab 5/Telephony Example/activity_main.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 5/Lab 5/Telephony Example/MainActivity.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 3/Lab 3/ExternalStorage Example/activity_main.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 3/Lab 3/ExternalStorage Example/MainActivity.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 3/Lab 3/SharedPreference Example/activity_main.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 3/Lab 3/SharedPreference Example/MainActivity.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 3/Lab 3/InternalStorage Example/activity_main.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 3/Lab 3/InternalStorage Example/ActivityMain.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 3.rar
+Software Engineering materials/4th year/Mobile Application Development/Chapter 1.pptx
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/RecycleViewAdapter App/sample_image2.png
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/RecycleViewAdapter App/activity_main.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/RecycleViewAdapter App/sample_image.jpg
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/RecycleViewAdapter App/row_fiction.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/RecycleViewAdapter App/sample_image3.png
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/RecycleViewAdapter App/FictionAdapter.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/RecycleViewAdapter App/Fiction.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/RecycleViewAdapter App/MainActivity.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/ArrayAdapter App/activity_main.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/ArrayAdapter App/MainActivity.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/StoryWithInflation App/sample_image2.png
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/StoryWithInflation App/activity_main.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/StoryWithInflation App/sample_image3.png
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/StoryWithInflation App/row_story.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/StoryWithInflation App/MainActivity.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/MaterialDesign Example/colors.xml.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/MaterialDesign Example/AndroidManifest.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/MaterialDesign Example/activity_main.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/MaterialDesign Example/themes.xml.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/MaterialDesign Example/Roboto.zip
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/MaterialDesign Example/build.gradle.kts.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 7/Lab 7/MaterialDesign Example/MainActivity.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 5.rar
+Software Engineering materials/4th year/Mobile Application Development/Lab 6.rar
+Software Engineering materials/4th year/Mobile Application Development/ConsumerApp.7z
+Software Engineering materials/4th year/Mobile Application Development/Chapter 3.pptx
+Software Engineering materials/4th year/Mobile Application Development/Chapter 5.pptx
+Software Engineering materials/4th year/Mobile Application Development/Lab 6/Lab 6/Alam Two/AndroidManifest.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 6/Lab 6/Alam Two/activity_main.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 6/Lab 6/Alam Two/AlarmReceiver.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 6/Lab 6/Alam Two/MainActivity.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 6/Lab 6/Simple Alarm/AndroidManifest.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 6/Lab 6/Simple Alarm/activity_main.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 6/Lab 6/Simple Alarm/alarm_sound.mp3
+Software Engineering materials/4th year/Mobile Application Development/Lab 6/Lab 6/Simple Alarm/AlarmReceiver.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 6/Lab 6/Simple Alarm/MainActivity.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 6/Lab 6/Simple Notification/AndroidManifest.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 6/Lab 6/Simple Notification/activity_main.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 6/Lab 6/Simple Notification/ic_notification.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 6/Lab 6/Simple Notification/MainActivity.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 4/Consumer App/AndroidManifest.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 4/Consumer App/activity_main.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 4/Consumer App/MainActivity.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 4/Provider App/AndroidManifest.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 4/Provider App/DBHelper.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 4/Provider App/activity_main.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 4/Provider App/StudentProvider.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 4/Provider App/MainActivity.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 4/SQLite Example/DBHelper.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 4/SQLite Example/activity_main.txt
+Software Engineering materials/4th year/Mobile Application Development/Lab 4/SQLite Example/MainActivity.txt
+Software Engineering materials/4th year/Software Testing and Quality Assurance/STQA-Chapter 1.pptx
+Software Engineering materials/4th year/Software Testing and Quality Assurance/STQA-Chapter 3.pptx
+Software Engineering materials/4th year/Software Testing and Quality Assurance/STQA-Chapter 5.pptx
+Software Engineering materials/4th year/Software Testing and Quality Assurance/STQA-Chapter 2.pptx
+Software Engineering materials/4th year/Software Testing and Quality Assurance/Ind & Group Ass.pdf
+Software Engineering materials/4th year/Software Testing and Quality Assurance/STQA-Chapter 4.pptx
+Software Engineering materials/2nd year/first semester/Introduction to Economics/chapter-1.pdf
+Software Engineering materials/2nd year/first semester/Introduction to Economics/chapter-2.pdf
+Software Engineering materials/2nd year/first semester/Introduction to Economics/theory of consumer behaviour.pdf
+Software Engineering materials/2nd year/first semester/Introduction to Economics/macroeconomics concept.pdf
+Software Engineering materials/2nd year/first semester/Introduction to Economics/theory of production and cost.pdf
+Software Engineering materials/2nd year/first semester/Inclusiveness/Inclu from.ch3-1.pptx
+Software Engineering materials/2nd year/first semester/Inclusiveness/Chap.1-PPT inclusiveness..pdf
+Software Engineering materials/2nd year/first semester/Inclusiveness/Inclusiveness module-1.pdf
+Software Engineering materials/2nd year/first semester/Computer Programming II/Chapter 1 - Arrays and Strings-1.pptx
+Software Engineering materials/2nd year/first semester/Computer Programming II/Chapter 2 - Pointers.pptx
+Software Engineering materials/2nd year/first semester/Computer Programming II/Chapter 2 - Pointers-1.pptx
+Software Engineering materials/2nd year/first semester/Fundamentals of Database Systems/Fundamental_of_Database_Systems.pdf
+Software Engineering materials/2nd year/first semester/Fundamentals of Database Systems/DB Chapter 2 - Relational Data Model.pptx
+Software Engineering materials/2nd year/first semester/Fundamentals of Database Systems/DB Chapter 1  - Introduction to DB System.pptx
+Software Engineering materials/2nd year/first semester/Fundamentals of Database Systems/Database_Systems_A_Practical_A_Thomas_Co.pdf
+Software Engineering materials/2nd year/first semester/Fundamentals of Software Engineering/Chapter 5 (1).pdf
+Software Engineering materials/2nd year/first semester/Fundamentals of Software Engineering/Chapter 4 (1).pdf
+Software Engineering materials/2nd year/first semester/Fundamentals of Software Engineering/Chapter 1 (1).pdf
+Software Engineering materials/2nd year/first semester/Fundamentals of Software Engineering/Chapter 6 (1).pdf
+Software Engineering materials/2nd year/first semester/Fundamentals of Software Engineering/Chapter 2 (1) (1).pdf
+Software Engineering materials/2nd year/first semester/Fundamentals of Software Engineering/Chapter 3 (1).pdf
+Software Engineering materials/2nd year/first semester/Discrete Mathematics and Combinatory/Discrete math chapter1-4.pdf
+Software Engineering materials/2nd year/first semester/Discrete Mathematics and Combinatory/begashaw (1).pdf
+Software Engineering materials/2nd year/first semester/Discrete Mathematics and Combinatory/basics-of-counting.pdf
+Software Engineering materials/2nd year/second semester/probability/chapter five to end.pptx
+Software Engineering materials/2nd year/second semester/probability/Probability_and_statistics_for_SE_G_2_chapter_1_8.pdf
+Software Engineering materials/2nd year/second semester/probability/workshee for assignment For SENG 2025.pdf
+Software Engineering materials/2nd year/second semester/probability/chapter 5 and 6.pdf
+Software Engineering materials/2nd year/second semester/probability/Corrected form.docx
+Software Engineering materials/2nd year/second semester/data Structure and algorithem/Chapter 1 Introduction to DS.docx
+Software Engineering materials/2nd year/second semester/data Structure and algorithem/Chapter-4-advanced sorting and  alg.pptx
+Software Engineering materials/2nd year/second semester/data Structure and algorithem/Updated Chapter 1 - Algorithm Analysis concept.pdf
+Software Engineering materials/2nd year/second semester/data Structure and algorithem/New folder/Chapter-4-advanced sorting and  alg.pptx
+Software Engineering materials/2nd year/second semester/data Structure and algorithem/New folder/Chapter 5 Hashing - Copy.pptx
+Software Engineering materials/2nd year/second semester/data Structure and algorithem/Chapter 5 Hashing - Copy.pptx
+Software Engineering materials/2nd year/second semester/data Structure and algorithem/Chapter 5 - Advanced sorting and searching algorithms.pdf
+Software Engineering materials/2nd year/second semester/data Structure and algorithem/Chapter 4 - Non-Linear Data Structures.pdf
+Software Engineering materials/2nd year/second semester/data Structure and algorithem/Chapter 2 - Simple Sorting & Searching Algorithm.pdf
+Software Engineering materials/2nd year/second semester/data Structure and algorithem/Chapter 3 - Linked List, Stacks an Queues.pdf
+Software Engineering materials/2nd year/second semester/data Structure and algorithem/~$apter 1 Introduction to DS.docx
+Software Engineering materials/2nd year/second semester/Fundamental of networking/Chapter_Two of Networking.pdf
+Software Engineering materials/2nd year/second semester/Fundamental of networking/s A/~$A Chapter_Two of Networking212.pptx
+Software Engineering materials/2nd year/second semester/Fundamental of networking/s A/A Chapter_One of Networking.pptx
+Software Engineering materials/2nd year/second semester/Fundamental of networking/s A/~$A Chapter_One of Networking.pptx
+Software Engineering materials/2nd year/second semester/Fundamental of networking/s A/A Chapter_Two of Networking212.pptx
+Software Engineering materials/2nd year/second semester/Fundamental of networking/Chapter_Three of Networking.pptx
+Software Engineering materials/2nd year/second semester/Fundamental of networking/Chapter_One of Networking.pdf
+Software Engineering materials/2nd year/second semester/Fundamental of networking/~$Chapter_Three of Networking.pptx
+Software Engineering materials/2nd year/second semester/Fundamental of networking/Three of Networking final.pptx
+Software Engineering materials/2nd year/second semester/Fundamental of networking/~$Chapter_Four of Networking.pptx
+Software Engineering materials/2nd year/second semester/Fundamental of networking/Chapter_Four of Networking.pptx
+Software Engineering materials/2nd year/second semester/OS and S programming/Chapter 2.pptx
+Software Engineering materials/2nd year/second semester/OS and S programming/Full Chapters.docx
+Software Engineering materials/2nd year/second semester/OS and S programming/CHAPTER 5 file managment.pptx
+Software Engineering materials/2nd year/second semester/OS and S programming/CHAPTER 5 os.docx
+Software Engineering materials/2nd year/second semester/OS and S programming/~$Operating system ch-1.pptx
+Software Engineering materials/2nd year/second semester/OS and S programming/Chapter 6.pptx
+Software Engineering materials/2nd year/second semester/OS and S programming/Chapter 4.pptx
+Software Engineering materials/2nd year/second semester/OS and S programming/My note in Os.docx
+Software Engineering materials/2nd year/second semester/OS and S programming/~$Chapter 2.pptx
+Software Engineering materials/2nd year/second semester/OS and S programming/Operating system ch-1.pptx
+Software Engineering materials/2nd year/second semester/OS and S programming/Chapter 4 Device managent.docx
+Software Engineering materials/2nd year/second semester/OS and S programming/Chapter 3 Memory mamagement.docx
+Software Engineering materials/2nd year/second semester/OS and S programming/chap 1 Introduction to Operating System.pptx
+Software Engineering materials/2nd year/second semester/OS and S programming/~$Chapter 3.pptx
+Software Engineering materials/2nd year/second semester/OS and S programming/Chapter 1.pptx
+Software Engineering materials/2nd year/second semester/OS and S programming/Chapter 4 Device managment(DM) Slide.pdf
+Software Engineering materials/2nd year/second semester/OS and S programming/Chapter 2 process mngmnt (1).docx
+Software Engineering materials/2nd year/second semester/OS and S programming/~$apter 2 process mngmnt (1).docx
+Software Engineering materials/2nd year/second semester/OS and S programming/Chapter 2 process mngmnt.docx
+Software Engineering materials/2nd year/second semester/OS and S programming/Chap 2 process managment.pptx
+Software Engineering materials/2nd year/second semester/OS and S programming/~$chap 1 Introduction to Operating System.pptx
+Software Engineering materials/2nd year/second semester/OS and S programming/~$Chapter 1.pptx
+Software Engineering materials/2nd year/second semester/OS and S programming/CHAPTER 3- Memory Management.pptx
+Software Engineering materials/2nd year/second semester/OS and S programming/Chapter 3.pptx
+Software Engineering materials/2nd year/second semester/OS and S programming/Chapter 5.pptx
+Software Engineering materials/2nd year/second semester/OS and S programming/Course outline.doc
+Software Engineering materials/2nd year/second semester/OS and S programming/chapter 7   Network Security _ Security and protection.pptx
+Software Engineering materials/2nd year/second semester/OO programming/Chapter01 Part I (1).pptx
+Software Engineering materials/2nd year/second semester/OO programming/Chapter02 - Classes & Objects (1).pptx
+Software Engineering materials/2nd year/second semester/OO programming/Chapter07 - Files.pptx
+Software Engineering materials/2nd year/second semester/OO programming/new/abdiladif mohamoud.pdf
+Software Engineering materials/2nd year/second semester/OO programming/new/Chapter - 1 Final.pptx
+Software Engineering materials/2nd year/second semester/OO programming/new/~$Chapter - 2.pptx
+Software Engineering materials/2nd year/second semester/OO programming/new/~$Chapter - 1 Final.pptx
+Software Engineering materials/2nd year/second semester/OO programming/new/~$Lecture 03 - Methods.pptx
+Software Engineering materials/2nd year/second semester/OO programming/new/Lecture 05 - Inheritance.pptx
+Software Engineering materials/2nd year/second semester/OO programming/new/Lecture 03 - Methods.pptx
+Software Engineering materials/2nd year/second semester/OO programming/new/New folder/Lecture 08 - Files & Streams.pptx
+Software Engineering materials/2nd year/second semester/OO programming/new/New folder/Lecture 06 - Polymorphism.pptx
+Software Engineering materials/2nd year/second semester/OO programming/new/New folder/Lecture 05 - Inheritance.pptx
+Software Engineering materials/2nd year/second semester/OO programming/new/New folder/Lecture 07 - Exception Handling.pptx
+Software Engineering materials/2nd year/second semester/OO programming/new/~$Lecture 04 - Class and Object.pptx
+Software Engineering materials/2nd year/second semester/OO programming/new/Chapter - 2.pptx
+Software Engineering materials/2nd year/second semester/OO programming/new/Lecture 04 - Class and Object.pptx
+Software Engineering materials/2nd year/second semester/OO programming/new/~$Lecture 05 - Inheritance.pptx
+Software Engineering materials/2nd year/second semester/OO programming/Chapter04 - Packages and Inerfaces (1).pptx
+Software Engineering materials/2nd year/second semester/OO programming/~$Chapter03 - Inheritance & Polymorphism.pptx
+Software Engineering materials/2nd year/second semester/OO programming/lab/Lab - Chapter 1.docx
+Software Engineering materials/2nd year/second semester/OO programming/lab/Lab - Chapter 2.docx
+Software Engineering materials/2nd year/second semester/OO programming/Chapter05 - Generics (1).pptx
+Software Engineering materials/2nd year/second semester/OO programming/~$Chapter02 - Classes & Objects (1).pptx
+Software Engineering materials/2nd year/second semester/OO programming/~$Chapter01 Part I (1).pptx
+Software Engineering materials/2nd year/second semester/OO programming/Chapter01 Part II (1).pptx
+Software Engineering materials/2nd year/second semester/OO programming/Chapter03 - Inheritance & Polymorphism.pptx
+Software Engineering materials/2nd year/second semester/OO programming/Chapter06 - Exception Handling.pptx
+Software Engineering materials/2nd year/second semester/Computer Organization and Architecture/Chap 5.pptx
+Software Engineering materials/2nd year/second semester/Computer Organization and Architecture/Chapter 4 IO Management.pptx
+Software Engineering materials/2nd year/second semester/Computer Organization and Architecture/Chapter 1.ppt
+Software Engineering materials/2nd year/second semester/Computer Organization and Architecture/Chapter 2 (1).pptx
+Software Engineering materials/2nd year/second semester/Computer Organization and Architecture/Chapter 3 (1) (1).pptx
+Software Engineering materials/3rd year/first semester/Software Engineering Tools and Practices/Chapter - 4 Final.pptx
+Software Engineering materials/3rd year/first semester/Software Engineering Tools and Practices/Chapter - 2.pptx
+Software Engineering materials/3rd year/first semester/Software Engineering Tools and Practices/Chapter - 1.pptx
+Software Engineering materials/3rd year/first semester/Software Engineering Tools and Practices/Chapter - 3.pptx
+Software Engineering materials/3rd year/first semester/microprosser/Chapter_Two of Microprocessor.pptx
+Software Engineering materials/3rd year/first semester/microprosser/Chapter_One of Microprocessor.pptx
+Software Engineering materials/3rd year/first semester/Advanced Database Systems/chapter 1.pdf
+Software Engineering materials/3rd year/first semester/Advanced Database Systems/Chapter 2.pdf
+Software Engineering materials/3rd year/first semester/Advanced Database Systems/Chapter 6-Data Warehouse and Datamining.pdf
+Software Engineering materials/3rd year/first semester/Advanced Database Systems/Chapter 4 - Distributed Database System.pdf
+Software Engineering materials/3rd year/first semester/Advanced Database Systems/chapter 3- DB security and Integrity.pdf
+Software Engineering materials/3rd year/first semester/Web Design and Programming/chapter three (web design and programming).pptx
+Software Engineering materials/3rd year/first semester/Web Design and Programming/chapter one (web design and programming) (2).pptx
+Software Engineering materials/3rd year/first semester/Web Design and Programming/Chapter four (web design and programming) (4).pptx
+Software Engineering materials/3rd year/first semester/Web Design and Programming/chapter two (web design and programming).pptx
+Software Engineering materials/3rd year/first semester/Web Design and Programming/chapter Five (web design and programming).pptx
+Software Engineering materials/3rd year/first semester/Requirements Engineering/Software Requirements Engineering SLIDE.pptx
+Software Engineering materials/3rd year/first semester/Fundamental of Software Security/Course Overview.pdf
+Software Engineering materials/3rd year/first semester/Fundamental of Software Security/Chapter 4_Application and OS Security.pdf
+Software Engineering materials/3rd year/first semester/Fundamental of Software Security/Chapter 1_Introduction to SW Security.pdf
+Software Engineering materials/3rd year/first semester/Fundamental of Software Security/Chapter 3_Cryptography.pdf
+Software Engineering materials/3rd year/first semester/Fundamental of Software Security/Group Ass't on Fund_of_SW Sec. for G3SE_A&B2017E.pdf
+Software Engineering materials/3rd year/first semester/Fundamental of Software Security/Chapter 2_Secure System Design & Design Principles.pdf
+Software Engineering materials/3rd year/second semester/Fundamental of Distributed Systems/Chapter 2-Architectures.pdf
+Software Engineering materials/3rd year/second semester/Software Project Management/Lec 7 SPM.pptx
+Software Engineering materials/3rd year/second semester/Software Project Management/Project HRM.ppt
+Software Engineering materials/3rd year/second semester/Software Project Management/Lec 3 SPM.pptx
+Software Engineering materials/3rd year/second semester/Software Project Management/Lec 4 SPM.pptx
+Software Engineering materials/3rd year/second semester/Software Project Management/Lec 1 of SPM.pptx
+Software Engineering materials/3rd year/second semester/Software Project Management/Project Communication.pptx
+Software Engineering materials/3rd year/second semester/Software Project Management/Lec 6 SPM.pptx
+Software Engineering materials/3rd year/second semester/Software Project Management/Lec 5 SPM.ppt
+Software Engineering materials/3rd year/second semester/Software Project Management/Lec 2 SPM.pptx
+Software Engineering materials/3rd year/second semester/Software Project Management/Project Procurement Management.pptx
+Software Engineering materials/3rd year/second semester/Software Architecture and Design/SE2_01_Introduction.pdf
+Software Engineering materials/3rd year/second semester/Software Architecture and Design/SE2_02_Design Patterns -prt01.pdf
+Software Engineering materials/3rd year/second semester/Software Architecture and Design/SE2_02_Design Patterns-prt02.pdf
+Software Engineering materials/3rd year/second semester/Software Architecture and Design/SE2_03_Envisioning Architecture.pdf
+Software Engineering materials/3rd year/second semester/Advanced Programming/Chapter 2.pptx
+Software Engineering materials/3rd year/second semester/Advanced Programming/Chapter 7.pptx
+Software Engineering materials/3rd year/second semester/Advanced Programming/Chapter 6.pptx
+Software Engineering materials/3rd year/second semester/Advanced Programming/Chapter 4.pptx
+Software Engineering materials/3rd year/second semester/Advanced Programming/Chapter 5.pptx
+Software Engineering materials/3rd year/second semester/Fundamental of Machine Learning/Chapter 1 - Machine Learning Fundamentals.pdf
+Software Engineering materials/3rd year/second semester/Fundamental of Machine Learning/Chapter 3- Unsupervised learnings.pdf
+Software Engineering materials/3rd year/second semester/Fundamental of Machine Learning/Chapter 5 - Data Preprocessing and Feature Engineering.pdf
+Software Engineering materials/3rd year/second semester/Fundamental of Machine Learning/Chapter 2- Supervised Learning.pdf
+Software Engineering materials/3rd year/second semester/Fundamental of Machine Learning/Chapter 4 - NN.pdf
+Software Engineering materials/3rd year/second semester/Fundamental of Machine Learning/Chapter 6 - Model Selection.pdf
+Software Engineering materials/3rd year/second semester/Fundamental of Cloud Computing & IoT/Chapter 1 Introduction.pdf
+Software Engineering materials/3rd year/second semester/Fundamental of Cloud Computing & IoT/Chapter 2 Understanding Cloud Computing.pdf
+Software Engineering materials/3rd year/second semester/Fundamental of Cloud Computing & IoT/Chapter 3  Fundamental Concepts and Models.pdf
+Software Engineering materials/3rd year/second semester/Fundamental of Cloud Computing & IoT/Chapter 5 Fundamentals of Cloud-Security.pdf
+Software Engineering materials/3rd year/second semester/Fundamental of Cloud Computing & IoT/Chapter 4  Cloud-Enabling Technology.pdf
+Software Engineering materials/3rd year/second semester - Shortcut.lnk
