@@ -1,6 +1,6 @@
 # MaterialX
 
-Arba Minch General Hospital - Student Learning Materials App
+Student Learning Materials App
 
 ## Description
 
